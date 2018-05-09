@@ -1,0 +1,71 @@
+<template>
+    <require from="../resources/elements/header-element"></require>
+
+    <header-element></header-element>
+    
+    <div class="container main-container container-detail">
+        <div class="title">${planetObject.name}</div>
+        <div class="row">
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Name</label>
+                  <div>${planetObject.name}</div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Rotation Period</label>
+                  <div>${planetObject.rotation_period}</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Orbital Period</label>
+                    <div>${planetObject.orbital_period}</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Diameter</label>
+                    <div>${planetObject.diameter}</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Climate</label>
+                      <div>${planetObject.climate}</div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Gravity</label>
+                      <div>${planetObject.gravity}</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Terrain</label>
+                        <div>${planetObject.terrain}</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Surface Water</label>
+                        <div>${planetObject.surface_water}</div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="footer-detail">
+                <a route-href="route: star-wars"><i class="fa fa-sign-out"> Back</i></a>
+              </div>
+    </div>
+</template>

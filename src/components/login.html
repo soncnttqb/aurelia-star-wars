@@ -1,0 +1,33 @@
+<template>
+  <form class="form-signin" submit.delegate="login()">
+    <div class="form-group">
+      <label>LOGIN</label>
+    </div>
+    <div class="form-group">
+      <input 
+      value.bind="userLogin.email"
+      type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+    </div>
+
+    <div class="form-group">
+      <input
+      value.bind="userLogin.password"
+      type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    </div>
+  
+    <div class="checkbox mb-3">
+      <div class="switch-container">
+          <label class="switch child">
+              <input type="checkbox">
+              <span class="slider round"></span>
+          </label>
+          <span class="child">Remember me?</span>
+      </div>
+       
+    </div>
+    <button style="float: right" disabled.bind="!(userLogin.email && userLogin.password)" class="btn btn-primary" type="submit">
+      <i class="fa fa-sign-in"> Sign in</i>
+    </button>
+    <div style="clear:both"></div>
+  </form>
+</template>

@@ -1,0 +1,112 @@
+<template>
+    <require from="../resources/elements/header-element"></require>
+
+    <header-element></header-element>
+    
+    <div class="container main-container container-detail">
+        <div class="title">${starShipObject.name}</div>
+        <div class="row">
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Name</label>
+                  <div>${starShipObject.name}</div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Rotation Period</label>
+                  <div>${starShipObject.model}</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Orbital Period</label>
+                    <div>${starShipObject.manufacturer}</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Cost in Credits</label>
+                    <div>${starShipObject.cost_in_credits}</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Length</label>
+                      <div>${starShipObject.length}</div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Max Atmosphering Speed</label>
+                      <div>${starShipObject.max_atmosphering_speed}</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Crew</label>
+                        <div>${starShipObject.crew}</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Passengers</label>
+                        <div>${starShipObject.passengers}</div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label class="bold">Cargo Capacity</label>
+                          <div>${starShipObject.cargo_capacity}</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label class="bold">Consumables</label>
+                          <div>${starShipObject.consumables}</div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="bold">Hyperdrive Rating</label>
+                            <div>${starShipObject.hyperdrive_rating}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="bold">MGLT</label>
+                            <div>${starShipObject.MGLT}</div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label class="bold">Starship Class</label>
+                              <div>${starShipObject.starship_class}</div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                      </div>
+                    </div>
+
+              <div class="footer-detail">
+                <a route-href="route: star-wars"><i class="fa fa-sign-out"> Back</i></a>
+              </div>
+    </div>
+</template>

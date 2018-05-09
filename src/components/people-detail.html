@@ -1,0 +1,71 @@
+<template>
+    <require from="../resources/elements/header-element"></require>
+
+    <header-element></header-element>
+    
+    <div class="container main-container container-detail">
+        <div class="title">${peopleObject.name}</div>
+        <div class="row">
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Name</label>
+                  <div>${peopleObject.name}</div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label class="bold">Hair Color</label>
+                  <div>${peopleObject.hair_color}</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Skin Color</label>
+                    <div>${peopleObject.skin_color}</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="bold">Eye Color</label>
+                    <div>${peopleObject.eye_color}</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Hair Color</label>
+                      <div>${peopleObject.height}</div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class="bold">Mass</label>
+                      <div>${peopleObject.mass}</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Gender</label>
+                        <div>${peopleObject.gender} <i class="fa fa-${peopleObject.gender}"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="bold">Birth Year</label>
+                        <div>${peopleObject.birth_year}</div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="footer-detail">
+                <a route-href="route: star-wars"><i class="fa fa-sign-out"> Back</i></a>
+              </div>
+    </div>
+</template>

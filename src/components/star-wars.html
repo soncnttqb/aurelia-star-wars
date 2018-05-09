@@ -1,0 +1,65 @@
+<template>
+      <require from="../resources/elements/header-element"></require>
+      <<require from="../resources/value-converters/filter-search"></require>
+
+      <header-element></header-element>
+        
+      <div class="container main-container">
+        <div class="criteria">
+            
+            <div class="form-group">
+                <select class="form-control col-md-6 " value.bind="selectedCategory" change.delegate ="selectedCategoryChanged()">
+                    <option repeat.for="cate of categories"
+                            model.bind="cate">
+                      ${cate.name}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control col-md-6 search-box" value.bind="searchTerm" placeholder="search..." >
+            </div>
+        </div>
+        
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th style="width: 30%">
+                Name
+              </th>
+              <th style="width: 30%">
+                  ${selectedCategory.id==1 ? 'Gender' : selectedCategory.id==2 ? 'Climate' : 'Model'}
+              </th>
+              <th style="width: 30%">
+                  ${selectedCategory.id==1 ? 'Eye color' : selectedCategory.id==2 ? 'Gravity' : 'Manufacturer'}
+              </th>
+              <th style="width: 10%" class="text-center">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="item of searchObject.results | filter:searchTerm:filterFunc: selectedCategory.id">
+              <td>
+                ${item.name}
+              </td>
+              <td>
+                  ${selectedCategory.id==1 ? item.gender : selectedCategory.id==2 ? item.climate : item.model}
+              </td>
+              <td>
+                  ${selectedCategory.id==1 ? item.eye_color : selectedCategory.id==2 ? item.gravity : item.manufacturer}
+                </td>
+              <td class="text-center">
+                <a if.bind="selectedCategory.id==1" route-href="route: people; params.bind: {id:getId(item)}">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+                <a if.bind="selectedCategory.id==2" route-href="route: planet; params.bind: {id:getId(item)}">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+                <a if.bind="selectedCategory.id==3" route-href="route: star-ship; params.bind: {id:getId(item)}">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+</template>
+  

@@ -1,0 +1,137 @@
+.form-signin {
+  width: 50%;
+  margin: auto;
+  margin-top: 100px !important;
+  box-shadow: 3px 3px 6px #c8c8c8, -1px -1px 2px #c8c8c8;
+  padding: 20px;
+}
+.btn {
+  width: auto;
+}
+
+.navbar {
+  background: #205081;
+  box-shadow: 0px 2px 4px #205081;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar-header {
+  color: white;
+}
+
+.main-container {
+  margin-top: 100px;
+}
+
+.container-detail {
+  padding: 10px;
+  box-shadow: 2px 2px 4px #c8c8c8
+}
+
+.container-detail .title {
+  background: #205081;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+ux-dialog-body .error {
+  color: red;
+}
+
+ux-dialog-body .info {
+  color: green;
+}
+
+.criteria {
+  margin: 20px 0px;
+}
+.form-group label {
+  font-weight: bold;
+}
+
+.fa {
+  font-size: 20px;
+}
+
+.footer-detail {
+  padding: 10px;
+  border-top: 1px solid #205081;
+  margin-top: 30px;
+}
+
+/* switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-container {
+  display: table;
+}
+.switch-container .child {
+  display: table-cell;
+  height: 34px;
+  line-height: 34px;
+}
+.switch-container span.child {
+  padding-left: 10px;
+}
+/* end switch */
