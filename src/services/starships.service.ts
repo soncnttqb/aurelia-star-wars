@@ -1,11 +1,11 @@
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { RestClient } from './rest-client.service';
 import {SearchObject} from '../models/searchObject';
 import { plainToClass } from 'class-transformer';
 import {StarShip} from '../models/starship';
 
 
-@inject(RestClient)
+@autoinject
 export class StarshipsService {
   constructor(
     private restClient: RestClient,
