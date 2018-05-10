@@ -16,6 +16,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 .navbar-header {
@@ -64,6 +65,27 @@ ux-dialog-body .info {
   padding: 10px;
   border-top: 1px solid #205081;
   margin-top: 30px;
+}
+
+.footer-detail a {
+  display: table;
+  text-decoration: none;
+}
+
+.footer-detail a i{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.footer-detail .fa-sign-out{
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Safari 3-8 */
+  transform: rotate(180deg);
+}
+
+.footer-detail i.text{
+  padding-left: 10px;
+  font-size: 18px;
 }
 
 /* switch */

@@ -1,10 +1,10 @@
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { StarshipsService } from '../services/starships.service';
 import {StarShip } from   '../models/starship';
 
-@inject(StarshipsService)
+@autoinject
 export class PlanetDetail {
-  starShipObject: StarShip;
+  private starShipObject: StarShip;
   constructor(
     private starshipsService: StarshipsService
   ) { }

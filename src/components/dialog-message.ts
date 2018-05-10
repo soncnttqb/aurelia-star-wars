@@ -1,14 +1,14 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {DialogController} from 'aurelia-dialog';
 
-@inject(DialogController)
+@autoinject
 export class DialogMessage {
-  message: object;
+  private message: object;
 
   constructor(private controller: DialogController) {
   }
 
-  activate(model) {
+  private activate(model): void {
     this.message = model;
   }
 }

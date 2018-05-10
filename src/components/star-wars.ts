@@ -1,6 +1,5 @@
-// import { RequestInit } from 'aurelia-fetch-client';
 
-import { inject, bindable } from 'aurelia-framework';
+import { autoinject, bindable } from 'aurelia-framework';
 import { PeopleService } from '../services/people.service';
 import { PlanetsService } from '../services/planets.service';
 import { StarshipsService } from '../services/starships.service';
@@ -11,14 +10,13 @@ export interface ICategory {
   name: string;
 }
 
-@inject(PeopleService, PlanetsService, StarshipsService)
+@autoinject
 export class StarWars {
 
-   current_user: string;
    @bindable searchTerm = "";
 
-   public searchObject: SearchObject;
-   public selectedCategory: ICategory;
+   private searchObject: SearchObject;
+   private selectedCategory: ICategory;
 
    categories: ICategory[] = [
     { id: 1, name: 'People' },
@@ -32,16 +30,16 @@ export class StarWars {
     private starshipsService: StarshipsService
   ) { }
 
-  public async activate(): Promise<void> {
+  private async activate(): Promise<void> {
     this.selectedCategory = { id: 1, name: 'People' };
     this.searchObject = await this.peopleService.getPeople();
   }
 
-  public selectedCategoryChanged(): void {
+  private selectedCategoryChanged(): void {
       this.getListByCategory();
   }
 
-  public async getListByCategory() {
+  private async getListByCategory() : Promise<void> {
     switch (this.selectedCategory.id) {
       case 1: {
         this.searchObject = await this.peopleService.getPeople();
@@ -58,19 +56,13 @@ export class StarWars {
     }
   }
 
-  getId(item): number {
+  private getId(item): number {
     let arr = item.url.split('/');
     arr = arr.filter((e) => { return e.length > 0});
     return parseInt(arr[arr.length - 1], 10);
   }
 
-  filterFunc(searchExpression, item, categoryId): boolean{
-     
-    // if(!searchExpression || !itemValue) return false;
-    
-    // return itemValue.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1;
-
-    // return item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1;
+  private filterFunc(searchExpression, item, categoryId): boolean {
     switch (categoryId) {
       case 1: {
         return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)

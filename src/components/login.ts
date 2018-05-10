@@ -1,29 +1,32 @@
 import { Router } from 'aurelia-router';
-import { inject } from 'aurelia-framework';
-import { AuthenService } from './../services/authen.service';
+import { autoinject } from 'aurelia-framework';
+import { AuthenticationService } from './../services/authentication.service';
 import {DialogService} from 'aurelia-dialog';
 import {User} from 'models/user';
 import {  DialogMessage,} from './dialog-message';
 
-@inject(AuthenService, Router, DialogService)
+@autoinject
 export class Login {
   
-  userLogin!: User;
+  private userLogin!: User;
 
-  constructor(private authenService: AuthenService, 
+  constructor(private authenticationService: AuthenticationService, 
     private router: Router, 
     public dialogService: DialogService
   ){
   }
 
   
-  created() {
-    this.authenService.logout();
+  private created() : void {
+    this.authenticationService.logout()
+    .then(()=> {
+    })
+    .catch((error)=> {
+    });
   }
 
-  login() {
-    console.log('userLogin', this.userLogin);
-     this.authenService.login(this.userLogin.email, this.userLogin.password)
+  private login() : void {
+     this.authenticationService.login(this.userLogin.email, this.userLogin.password)
      .then((response) => {
         if(response){
           this.router.navigate('star-wars');
@@ -34,18 +37,15 @@ export class Login {
      })
   }
 
-  showError() {
+  private showError() : void {
     this.dialogService.open({
       viewModel: DialogMessage, 
       model: {type: 'error', text: 'Login error, email or password is incorrect!'}
     })
     .whenClosed(response => {
-      if (!response.wasCancelled) {
-        console.log('OK');
-      } else {
-        console.log('Cancel');
-      }
-      console.log(response.output);
+      // if (!response.wasCancelled) {
+      // } else { 
+      // }
     });
   }
 }

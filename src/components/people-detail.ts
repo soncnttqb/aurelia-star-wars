@@ -1,16 +1,14 @@
 
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { PeopleService } from '../services/people.service';
 import {People } from   '../models/people';
 
-@inject(PeopleService)
+@autoinject
 export class PeopleDetail {
-  peopleObject: People;
-  constructor(
-    private peopleService: PeopleService
-  ) { }
+  private peopleObject: People;
+  constructor(private peopleService: PeopleService) { }
 
-  public async activate(params, routeConfig): Promise<void> {
+  private async activate(params, routeConfig): Promise<void> {
     this.peopleObject = await this.peopleService.getPeopleDetail(params.id);
     routeConfig.navModel.setTitle(this.peopleObject.name);
   }
