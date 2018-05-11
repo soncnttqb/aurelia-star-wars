@@ -13,7 +13,7 @@ export interface ICategory {
 @autoinject
 export class StarWars {
 
-   @bindable searchTerm = "";
+   @bindable public searchTerm = '';
 
    private searchObject: SearchObject;
    private selectedCategory: ICategory;
@@ -39,7 +39,7 @@ export class StarWars {
       this.getListByCategory();
   }
 
-  private async getListByCategory() : Promise<void> {
+  private async getListByCategory(): Promise<void> {
     switch (this.selectedCategory.id) {
       case 1: {
         this.searchObject = await this.peopleService.getPeople();
@@ -58,28 +58,28 @@ export class StarWars {
 
   private getId(item): number {
     let arr = item.url.split('/');
-    arr = arr.filter((e) => { return e.length > 0});
+    arr = arr.filter(e => e.length > 0);
     return parseInt(arr[arr.length - 1], 10);
   }
 
   private filterFunc(searchExpression, item, categoryId): boolean {
     switch (categoryId) {
       case 1: {
-        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.gender && item.gender.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.eye_color && item.eye_color.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1);
+        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.gender && item.gender.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.eye_color && item.eye_color.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1);
       }
       case 2: {
-        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.climate && item.climate.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.gravity && item.gravity.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1);
+        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.climate && item.climate.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.gravity && item.gravity.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1);
       }
       case 3: {
-        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.model && item.model.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1)
-        || (item.manufacturer && item.manufacturer.toUpperCase().indexOf(searchExpression.toUpperCase()) !==-1);
+        return (item.name && item.name.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.model && item.model.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1)
+        || (item.manufacturer && item.manufacturer.toUpperCase().indexOf(searchExpression.toUpperCase()) !== -1);
       }
     }
-    
+
   }
 }

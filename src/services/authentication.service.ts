@@ -8,17 +8,17 @@ export class AuthenticationService {
 
   constructor(private userApi: UserAPI) {}
 
-  public async login(email: string, password: string) : Promise<User> {
-    return this.userApi.login(email, password).then((response) => {
-      if(response) {
+  public async login(email: string, password: string): Promise<User> {
+    return this.userApi.login(email, password).then(response => {
+      if (response) {
         localStorage.setItem('currentUser', JSON.stringify(response));
         localStorage.setItem('isAuthentication', 'true');
       }
       return response;
-    })
+    });
   }
 
-  public async logout() : Promise<void>{
+  public async logout(): Promise<void> {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('isAuthentication');
   }

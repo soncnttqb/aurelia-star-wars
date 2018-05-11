@@ -4,7 +4,6 @@ import {SearchObject} from '../models/searchObject';
 import { plainToClass } from 'class-transformer';
 import {StarShip} from '../models/starship';
 
-
 @autoinject
 export class StarshipsService {
   constructor(
