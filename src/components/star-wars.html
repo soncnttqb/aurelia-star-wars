@@ -19,7 +19,7 @@
                 <input type="text" class="form-control col-md-6 search-box" value.bind="searchTerm" placeholder="search..." >
             </div>
         </div>
-        
+
         <table class="table table-hover">
           <thead>
             <tr>
@@ -35,7 +35,7 @@
               <th style="width: 10%" class="text-center">Detail</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody if.bind="!isLoading">
             <tr repeat.for="item of searchObject.results | filter:searchTerm:filterFunc: selectedCategory.id">
               <td>
                 ${item.name}
@@ -56,6 +56,15 @@
                 <a if.bind="selectedCategory.id==3" route-href="route: star-ship; params.bind: {id:getId(item)}">
                     <i class="fa fa-info-circle"></i>
                 </a>
+              </td>
+            </tr>
+          </tbody>
+          <tbody if.bind="isLoading">
+            <tr>
+              <td colspan="4" class="text-center">
+                <span style="color: #007bff" class="navbar-text">
+                  <i class="fa fa-spinner fa-spin"></i>
+                </span>
               </td>
             </tr>
           </tbody>

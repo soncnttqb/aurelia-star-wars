@@ -14,6 +14,7 @@ export interface ICategory {
 export class StarWars {
 
    @bindable public searchTerm = '';
+   public isLoading = false;
 
    private searchObject: SearchObject;
    private selectedCategory: ICategory;
@@ -32,7 +33,9 @@ export class StarWars {
 
   private async activate(): Promise<void> {
     this.selectedCategory = { id: 1, name: 'People' };
+    this.isLoading = true;
     this.searchObject = await this.peopleService.getPeople();
+    this.isLoading = false;
   }
 
   private selectedCategoryChanged(): void {
@@ -40,6 +43,7 @@ export class StarWars {
   }
 
   private async getListByCategory(): Promise<void> {
+    this.isLoading = true;
     switch (this.selectedCategory.id) {
       case 1: {
         this.searchObject = await this.peopleService.getPeople();
@@ -54,6 +58,7 @@ export class StarWars {
         break;
       }
     }
+    this.isLoading = false;
   }
 
   private getId(item): number {
