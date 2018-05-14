@@ -1,4 +1,3 @@
-
 import {User} from '../models/user';
 let id = 0;
 
@@ -16,5 +15,10 @@ export class UserAPI {
     const found = await users.find(x => x.email === email && x.password === password);
 
     return found ? new User(found.id, found.email) : null;
-    }
+  }
+
+  public async getUserById(id: number): Promise<User> {
+    const user = await users.find(x => x.id === id);
+    return user;
+  }
 }
