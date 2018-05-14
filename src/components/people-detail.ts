@@ -1,7 +1,7 @@
 
 import { autoinject } from 'aurelia-framework';
 import { PeopleService } from '../services/people.service';
-import {People } from   '../models/people';
+import {People } from '../models/people';
 
 @autoinject
 export class PeopleDetail {

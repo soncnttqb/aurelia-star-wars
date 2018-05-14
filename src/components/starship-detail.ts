@@ -1,6 +1,6 @@
 import { autoinject } from 'aurelia-framework';
 import { StarshipsService } from '../services/starships.service';
-import {StarShip } from   '../models/starship';
+import {StarShip } from '../models/starship';
 
 @autoinject
 export class PlanetDetail {

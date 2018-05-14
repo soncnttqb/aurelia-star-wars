@@ -18,11 +18,11 @@ export class StarWars {
    private searchObject: SearchObject;
    private selectedCategory: ICategory;
 
-   categories: ICategory[] = [
+   public categories: ICategory[] = [
     { id: 1, name: 'People' },
     { id: 2, name: 'Planets' },
     { id: 3, name: 'Starships' },
-   ]
+   ];
 
    constructor(
     private peopleService: PeopleService,

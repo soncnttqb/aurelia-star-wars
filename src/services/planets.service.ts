@@ -2,8 +2,7 @@ import { autoinject } from 'aurelia-framework';
 import { RestClient } from './rest-client.service';
 import {SearchObject} from '../models/searchObject';
 import { plainToClass } from 'class-transformer';
-import {Planet}  from '../models/planet';
-
+import {Planet} from '../models/planet';
 
 @autoinject
 export class PlanetsService {

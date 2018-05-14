@@ -18,8 +18,6 @@ export const jsonHeaders = {
   'Content-Type': 'application/json'
 };
 
-
-
 @transient()
 @autoinject
 export class RestClient {
@@ -29,10 +27,9 @@ export class RestClient {
   private baseUrl!: string;
 
   private headers: THeaders = {};
-  
+
   private API_MAIN_URL = 'https://swapi.co/api/';
   private API_UAM_URL = 'https://swapi.co/api/';
-   
 
   constructor(
     private httpClient: HttpClient

@@ -1,9 +1,8 @@
 import { autoinject } from 'aurelia-framework';
 import { RestClient } from './rest-client.service';
-import {People}  from '../models/people';
+import {People} from '../models/people';
 import {SearchObject} from '../models/searchObject';
 import { plainToClass } from 'class-transformer';
-
 
 @autoinject
 export class PeopleService {

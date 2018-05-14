@@ -3,48 +3,46 @@ import { autoinject } from 'aurelia-framework';
 import { AuthenticationService } from './../services/authentication.service';
 import {DialogService} from 'aurelia-dialog';
 import {User} from 'models/user';
-import {  DialogMessage,} from './dialog-message';
+import {  DialogMessage} from './dialog-message';
 
 @autoinject
 export class Login {
-  
+
   private userLogin!: User;
 
-  constructor(private authenticationService: AuthenticationService, 
-    private router: Router, 
-    public dialogService: DialogService
-  ){
+  constructor(private authenticationService: AuthenticationService,
+              private router: Router,
+              public dialogService: DialogService
+  ) {
   }
 
-  
-  private created() : void {
+  private created(): void {
     this.authenticationService.logout()
-    .then(()=> {
+    .then(() => {
     })
-    .catch((error)=> {
+    .catch(error => {
     });
   }
 
-  private login() : void {
+  private login(): void {
      this.authenticationService.login(this.userLogin.email, this.userLogin.password)
-     .then((response) => {
-        if(response){
+     .then(response => {
+        if (response) {
           this.router.navigate('star-wars');
-        }
-        else {
+        } else {
           this.showError();
         }
-     })
+     });
   }
 
-  private showError() : void {
+  private showError(): void {
     this.dialogService.open({
-      viewModel: DialogMessage, 
+      viewModel: DialogMessage,
       model: {type: 'error', text: 'Login error, email or password is incorrect!'}
     })
     .whenClosed(response => {
       // if (!response.wasCancelled) {
-      // } else { 
+      // } else {
       // }
     });
   }
